@@ -50,9 +50,9 @@ export const ContactList = (props) => {
     setSearch(input);
     //console.log(uName[0]);
     const data = await getAllContacts();
- //   console.log("search");
+    //   console.log("search");
 
- //   console.log(data);
+    //   console.log(data);
     const contact = [];
     for (const key in data) {
       contact.push({
@@ -61,7 +61,7 @@ export const ContactList = (props) => {
         number: data[key].number,
       });
     }
-  //  console.log(contact);
+    //  console.log(contact);
     setContacts(contact);
     //
     const search_contact = [];
@@ -131,15 +131,6 @@ export const ContactList = (props) => {
       return data.id === id ? { id, ...response } : data;
     });
     setContacts(updatedData);
-
-    // const updatedData = [];
-    // for (const key in contacts) {
-    //   updateContact.push({
-    //     id: key,
-    //     name: contacts[key].name,
-    //     number: contacts[key].number,
-    //   });
-    ///  console.log(response);
   };
   let content;
 
@@ -179,7 +170,7 @@ export const ContactList = (props) => {
     content = <p>Loading...</p>;
   }
   return (
-    <div>
+    <Fragment>
       {/* {isInvalid && "asda"} */}
       <div className="flex flex-row space-x-14">
         <input
@@ -206,6 +197,6 @@ export const ContactList = (props) => {
       <Card className="text-white nm-flat-gray-800 max-w-lg w-full p-4 rounded-lg mt-6 ">
         <ul className="divide-y divide-slate-700">{content}</ul>
       </Card>
-    </div>
+    </Fragment>
   );
 };
